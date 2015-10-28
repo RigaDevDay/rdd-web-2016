@@ -1,0 +1,25 @@
+<section id="team" class="content">
+  <div class="section-header red diagonal-right">
+    <h1>Meet Our Team</h1>
+  </div>
+  <div class="container">
+    <div class="row row-centered">
+      <div class="col-sm-3 col-centered"
+           data-toggle="modal" data-target="#complete-dialog"
+           ng-repeat="person in vm.staff">
+        <div class="panel panel-default rdd-panel">
+          <div class="panel-body">
+            <img ng-src="{{person.img}}">
+          </div>
+          <div class="panel-footer">
+            <h3 class="text-white"><strong>{{person.name}}</strong></h3>
+          </div>
+        </div>
+        <div class="team-social">
+          <a ng-href="{{person.twitter}}" class="btn btn-material-light-blue btn-fab rdd-btn-raised fa fa-twitter"></a>
+          <a ng-href="{{person.linkedin}}" class="btn btn-material-blue btn-fab rdd-btn-raised fa fa-linkedin"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

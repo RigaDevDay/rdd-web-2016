@@ -1,0 +1,54 @@
+<section id="schedule" class="content schedule">
+  <div class="section-header red diagonal-right">
+    <h1>Schedule</h1>
+  </div>
+  <div class="container">
+    <div class="row row-centered table-responsive">
+      <table class="table">
+        <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th><button class="btn-link" ng-click="vm.loadDay(0)">Day 1</button></th>
+          <th><button class="btn-link" ng-click="vm.loadDay(1)">Day 2</button></th>
+          <th><button class="btn-link btn-disabled" disabled="disabled">Workshops</button></th>
+          <th></th>
+        </tr>
+        <tr>
+          <th></th>
+          <th></th>
+          <th class="text-center" ng-repeat="track in vm.tracks">{{track}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="session in vm.schedule" class="{{session.color}}">
+          <td class="time">{{session.time}}</td>
+          <td class="{{session.icon}} icon">
+            <div></div>
+          </td>
+          <td class="content"
+              ng-repeat="event in session.events"
+              ng-class="{unique: event.title, clickable: event.speakers.length > 0}"
+              colspan="{{vm.rooms.length / session.events.length}}">
+            <div class="main">
+              <header>
+                <span ng-if="event.title">{{event.title}}</span>
+                <span ng-if="event.speakers.length > 0" ng-repeat="speakerid in event.speakers">{{speakers[speakerid].name}}<span ng-hide="$last">, </span></span>
+              </header>
+              <div class="desc">{{event.subtitle}}</div>
+            </div>
+            <div class="tags" ng-repeat="tag in event.tags">
+              <a class="magenta">{{tag}}</a>
+            </div>
+            <div class="slides" ng-show="event.slides">
+              <a ng-href="{{event.slides}}" target="_blank">slides</a>
+            </div>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /.container -->
+</section>

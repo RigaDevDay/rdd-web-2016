@@ -1,0 +1,17 @@
+<section id="venue" class="content hidden-xs hidden-sm">
+  <header class="section-header red diagonal-right" id="map-section">
+    <h1>Venue</h1>
+  </header>
+  <article id="map">
+    <div id="map-container">
+      <ui-gmap-google-map center='vm.map.center'
+                          zoom='vm.map.zoom'
+                          options='vm.map.options'>
+        <ui-gmap-marker idKey='vm.marker.idKey'
+                        coords='vm.marker.position'
+                        options='vm.marker.options'>
+        </ui-gmap-marker>
+      </ui-gmap-google-map>
+    </div>
+  </article>
+</section>
