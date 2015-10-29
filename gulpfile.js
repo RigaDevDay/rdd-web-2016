@@ -1,49 +1,29 @@
+/**
+ *  Welcome to your gulpfile!
+ *  The gulp tasks are splitted in several files in the gulp directory
+ *  because putting all here was really too long
+ */
+
+'use strict';
+
 var gulp = require('gulp');
-var concat = require('gulp-concat');
-var connect = require('gulp-connect');
+var wrench = require('wrench');
 
-gulp.task('build-js', function() {
-  return gulp.src([
-      'js/html5shiv.js',
-      'js/respond.min.js',
-      'js/jquery.js',
-      'js/angular.min.js',
-      'js/ui-bootstrap.min.js',
-      'js/bootstrap.min.js',
-      'js/ripples.min.js',
-      'js/arrive.js',
-      'js/material.min.js',
-      'js/index.js',
-      'js/count-to.js',
-      'js/rdd.js',
-      'js/facebook.js',
-      'js/linkedin.js',
-      'js/grid3d/classie.js',
-      'js/grid3d/grid3d.js',
-      'js/grid3d/helper.js'
-    ])
-    .pipe(concat('rdd.js'))
-    .pipe(gulp.dest('./dist/'));
-});
-gulp.task('build-css', function() {
-  return gulp.src([
-      'css/bootstrap.min.css',
-      'css/material-blue.min.css',
-      'css/ripples.min.css',
-      'css/rdd.css',
-      'css/gallery3d.css'
-    ])
-    .pipe(concat('rdd.css'))
-    .pipe(gulp.dest('./dist/'));
+/**
+ *  This will load all js or coffee files in the gulp directory
+ *  in order to load all gulp tasks
+ */
+wrench.readdirSyncRecursive('./gulp').filter(function(file) {
+  return (/\.(js|coffee)$/i).test(file);
+}).map(function(file) {
+  require('./gulp/' + file);
 });
 
-gulp.task('watch', function() {
-    gulp.watch('js/*.js', ['build-js']);
-    gulp.watch('css/*.css', ['build-css']);
-});
 
-gulp.task('connect', function() {
-  connect.server();
+/**
+ *  Default task clean temporaries directories and launch the
+ *  main optimization build task
+ */
+gulp.task('default', ['clean'], function () {
+  gulp.start('build');
 });
-
-gulp.task('dev', ['build-js', 'build-css', 'connect', 'watch'])

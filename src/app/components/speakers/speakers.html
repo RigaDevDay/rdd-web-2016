@@ -1,0 +1,27 @@
+<section id="speakers" class="content">
+  <div class="section-header red">
+    <h1>Speakers</h1>
+  </div>
+  <div class="container">
+    <div class="row row-centered">
+      <div class="col-sm-3 col-centered" data-toggle="modal" data-target="#complete-dialog"
+           ng-repeat="person in vm.speakers">
+        <div class="panel panel-default rdd-panel" ng-click="vm.personModal(person)">
+          <div class="panel-body">
+            <img ng-src="{{person.img}}">
+          </div>
+          <div class="panel-footer">
+            <h3 class="text-white"><strong>{{person.name}}</strong></h3>
+            <h3 class="text-white">{{person.company}}</h3>
+          </div>
+        </div>
+        <div class="team-social">
+          <a ng-href="{{person.twitter}}" class="btn btn-material-light-blue btn-fab rdd-btn-raised fa fa-twitter"></a>
+          <a ng-show="person.blog" ng-href="{{person.blog}}" class="btn btn-material-green btn-fab rdd-btn-raised fa fa-globe"></a>
+        </div>
+      </div>
+      <h1 class="top50">More to come soon!</h1>
+      <h1 class="top17">Fill <a target="_blank" href="https://goo.gl/lZ8hQg">Call for Papers</a></h1>
+    </div>
+  </div>
+</section>

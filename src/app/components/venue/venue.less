@@ -1,0 +1,70 @@
+/* Google Map */
+@map-container-height: 680px;
+
+#map-section {
+  margin-bottom: -15px;
+}
+
+#map {
+  height: 550px;
+  position: relative;
+
+  .angular-google-map-container {
+    height: @map-container-height;
+  }
+  #map-container {
+    width: 100%;
+    height: @map-container-height;
+    position: absolute;
+    z-index: 0;
+  }
+  #map-description {
+    position: absolute;
+    width: 514px;
+    height: 161px;
+    left: 50%;
+    margin: 410px 0 0 -280px;
+    color: #384d66;
+    text-align: center;
+    z-index: 1;
+    background: url("../assets/img/map-description.png") no-repeat;
+    padding: 20px;
+
+    .photos {
+      margin: 8px 0 0 0;
+      padding: 0;
+      list-style-type: none;
+
+      li {
+        display: inline-block;
+        margin: 0 8px;
+      }
+      img {
+        -webkit-box-shadow: 4px 4px 5px 0 rgba(50, 50, 50, 0.5);
+        -moz-box-shadow: 4px 4px 5px 0 rgba(50, 50, 50, 0.5);
+        box-shadow: 4px 4px 5px 0 rgba(50, 50, 50, 0.5);
+      }
+    }
+  }
+
+  .title {
+    font: 500 20px Roboto, "lucida grande", tahoma, verdana, arial, sans-serif;
+    margin-top: 5px;
+  }
+
+  .description {
+    font: lighter 14px Roboto, "lucida grande", tahoma, verdana, arial, sans-serif;
+  }
+}
+
+.map-label {
+  font: normal 14px "Roboto", "lucida grande", tahoma, verdana, arial, sans-serif;
+  color: #000000;
+  background-color: #ffffff;
+  padding: 5px;
+  opacity: 0.7;
+}
+
+.map-section-after {
+  padding-top: -35px;
+}
